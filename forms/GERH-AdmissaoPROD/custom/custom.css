@@ -1,0 +1,30 @@
+.panel-info .panel-heading {
+    background: #002060 !important;
+}
+
+.panel-info .panel-heading a{
+    color: white;
+}
+
+.panel-info .panel-heading ::after{
+    color: white !important;
+}
+
+.panel.panel-info{
+    border-color: #002060;
+}
+
+form label.required:after{
+    color: #FF0000;
+    content: " *";
+}
+
+.textoDescritivo{
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.divBtns{
+    text-align: center;
+}

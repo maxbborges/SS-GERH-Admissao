@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Reenquadramento</title>
+	<link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
+	<script src="/resources/js/jquery/jquery.js"></script>
+	<script src="/resources/js/jquery/jquery-ui.min.js"></script>
+	<script src="/resources/js/mustache/mustache-min.js"></script>
+	<script src="/style-guide/js/fluig-style-guide.min.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
+	<link href="/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
+	<link href="/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+	<script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+	<script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+	<link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
+	<script src="./custom/jspdf.min.js"></script>
+	<link href="./custom/custom.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="./custom/custom.js"></script>
+	<script type="text/javascript" src="./functionsCustom.js"></script>
+</head>
+
+<body class="fluig-style-guide">
+	<form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents"
+		style="padding-left: 10px; padding-right: 10px;">
+		<!-- <h1 class="title-form-application">Formulário de GERH-Reenquadramento</h1> -->
+		
+		<input type="hidden" class="form-control" name="nrPasta" readonly>
+		<input type="hidden" class="form-control" name="nrSolicitacao" readonly>
+		<div id="form_content">
+			<div class="panel panel-info" id="div_00">
+				<!-- trocar o ID -->
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<span class="flaticon flaticon-message icon-sm"></span>
+						Solicitação de Admissão
+					</h3>
+				</div>
+				<div id="movimentar" class="panel-collapse collapse in">
+					<!-- trocar o ID -->
+					<div class="panel-body">
+						<div class="row form-group textoDescritivo">
+							<div class="col-sm-12">
+								<p>IS-DEX/SEST/SENAT Nº 006/16</p>
+							</div>
+							<div class="col-sm-12">
+								<p>ANEXO IV</p>
+							</div>
+							<div class="col-sm-12">
+								Solicitação de Admissão
+							</div>
+						</div>
+						<div class="paragraph-is-required system-message-information alert alert-info" role="alert">
+							Todos os campos com * são de preenchimento obrigatório.
+						</div>
+						<div class="row form-group">
+							<div class="col-sm-12">
+								<label class='required'>Nome do Colaborador</label>
+								<input type="text" class="form-control" name="txt_00_nomeColaborador"
+									placeholder="Digite o nome do colaborador">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-sm-4">
+								<label class='required'>Gerência</label>
+								<input type="text" class="form-control" name="txt_00_gerenciaAtual"
+									placeholder="Digite a gerência atual">
+							</div>
+							<div class="col-sm-4">
+								<label class='required'>Função</label>
+								<input type="text" class="form-control" name="txt_00_fucAtual"
+									placeholder="Digite a função atual">
+							</div>
+							<div class="col-sm-4">
+								<label class='required'>Data de Admissão</label>
+								<input type="text" class="form-control date" name="txt_00_dtAdmissao"
+									placeholder="Digite a data de admissão">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-sm-6">
+								<label class='required'>Entidade</label>
+								<div class="radio-options">
+									<div class="radio">
+										<label><input type="radio" name="rd_00_entidade" value="SEST">SEST</label>
+									</div>
+									<div class="radio">
+										<label><input type="radio" name="rd_00_entidade" value="senat">SENAT</label>
+									</div>
+									<div class="radio">
+										<label><input type="radio" name="rd_00_entidade" value="ambos">AMBOS</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-info" id="div_01">
+				<!-- trocar o ID -->
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a class="collapse-icon up" data-toggle="collapse" data-parent="#div_01"
+							data-target="#responsaveisAssinatura" href="#responsaveisAssinatura">
+							<!-- trocar o href,data-target, data-parent -->
+							<span class="flaticon flaticon-message icon-sm"></span>
+							Assinantes
+						</a>
+					</h3>
+				</div>
+				<div id="responsaveisAssinatura" class="panel-collapse collapse in">
+					<!-- trocar o ID -->
+					<div class="panel-body">
+						<div class="row form-group">
+							<div class="col-sm-12">
+								<label for="zoom">Assinantes Cadastrados</label>
+								<input type="zoom" class="form-control" name="zf_01_assinantes" id="zf_01_assinantes">
+								<div class="zoom-preview"></div>
+							</div>
+						</div>
+						<div class="row">
+							<table tablename="tbl_assinantes_15" class="table" noaddbutton="true">
+								<thead>
+									<tr class="tableHeadRow">
+										<th class="tableColumn">CPF</th>
+										<th class="tableColumn">Nome</th>
+										<th class="tableColumn">E-mail</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="tableBodyRow">
+										<td class="fs-v-align-middle">
+											<div class="form-input">
+												<input type="text" name="column1_1" class="form-control" readonly>
+											</div>
+										</td>
+										<td class="fs-v-align-middle">
+											<div class="form-input">
+												<input type="text" name="column2_1" class="form-control" readonly>
+											</div>
+										</td>
+										<td class="fs-v-align-middle">
+											<div class="form-input">
+												<input type="text" name="column3_1" class="form-control" readonly>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="row divBtns">
+							<button type="button" class="btn btn-info" id="btn_criaPDF">Gerar PDF</button>
+							<button type="button" class="btn btn-info" id="btn_enviaAssinatura">Enviar Para Assinatura</button>
+							<label class="required labelHidden"></label>
+							<input type="hidden" class="form-control" name="txt_01_validaVertsign" readonly>
+							<input type="hidden" class="form-control" name="txt_01_nomeDocumento" readonly>
+							<input type="hidden" class="form-control" name="txt_01_idDocumento" readonly>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+
+</html>
